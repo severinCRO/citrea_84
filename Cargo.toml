@@ -1,0 +1,44 @@
+[package]
+name = "ethereum-rpc"
+authors = { workspace = true }
+edition = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+repository = { workspace = true }
+
+version = { workspace = true }
+publish = false
+readme = "README.md"
+resolver = "2"
+
+[dependencies]
+anyhow = { workspace = true }
+citrea-evm = { path = "../evm", features = ["native"] }
+jsonrpsee = { workspace = true, features = ["http-client", "server"] }
+rustc_version_runtime = { workspace = true }
+sequencer-client = { path = "../sequencer-client" }
+tracing = { workspace = true }
+
+borsh = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+reth-primitives = { workspace = true }
+reth-rpc = { workspace = true }
+reth-rpc-types = { workspace = true }
+reth-rpc-types-compat = { workspace = true }
+
+schnellru = "0.2.1"
+tokio = { workspace = true }
+
+sov-rollup-interface = { path = "../sovereign-sdk/rollup-interface", features = ["native"] }
+
+sov-modules-api = { path = "../sovereign-sdk/module-system/sov-modules-api", default-features = false }
+
+[dev-dependencies]
+proptest = { workspace = true }
+tokio = { workspace = true }
+
+[features]
+default = ["local"]
+local = []
